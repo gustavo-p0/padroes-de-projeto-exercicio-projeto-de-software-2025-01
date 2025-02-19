@@ -55,13 +55,13 @@ enum Preference{
   OTHER
 }
 
-function makeAToy(preference: Preference = Preference.OTHER): InterativeToy{
-  const FACTORIES: Record<Preference, FactoryInterativeToy> = {
+const FACTORIES: Record<Preference, FactoryInterativeToy> = {
     [Preference.DOLLS]: new BarbieFactory(),
     [Preference.CARS]: new HotWheelsFactory(),
     [Preference.OTHER]: new GenericToyFactory(),
-  };
+};
 
+function makeAToy(preference: Preference = Preference.OTHER): InterativeToy{
   const matchFactory = FACTORIES[preference];
 
   return matchFactory.create();
